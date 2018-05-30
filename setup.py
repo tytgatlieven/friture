@@ -162,6 +162,8 @@ ext_modules = [Extension("friture.exp_smoothing_conv", ["friture/extension/exp_s
                          include_dirs=[numpy.get_include()]),
                Extension("friture.lfilter", ["friture/extension/lfilter.pyx"],
                          include_dirs=[numpy.get_include()])]
+cmdclass = { }
+cmdclass.update({ 'build_ext': build_ext })
 
 setup(name="friture",
       version=friture.__version__,
@@ -188,10 +190,10 @@ setup(name="friture",
       packages=['friture',
                 'friture.plotting',
                 'friture.generators',
-                'friture.signal',
-                'friture.extension'],
+                'friture.signal'],
+      cmdclass=cmdclass,
       scripts=['scripts/friture'],
-      ext_modules=cythonize(ext_modules),
+      ext_modules=ext_modules,
       **extra_options
       )
 
