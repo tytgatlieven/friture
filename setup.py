@@ -3,6 +3,7 @@ import sys
 from setuptools import setup
 from setuptools.extension import Extension
 from Cython.Build import cythonize
+from Cython.Distutils import build_ext
 from glob import glob
 import os
 from os.path import join, dirname  # for README content reading and py2exe fix
